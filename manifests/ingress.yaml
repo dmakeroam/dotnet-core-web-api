@@ -4,12 +4,12 @@ metadata:
   name: dotnet-core-web-api
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: azure/application-gateway
 spec:
   rules:
   - http:
       paths:
-      - path: /dotnet
+      - path: /
         pathType: Prefix
         backend:
           service:

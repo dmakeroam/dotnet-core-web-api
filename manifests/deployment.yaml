@@ -6,7 +6,7 @@ metadata:
   name: dotnet-core-web-api
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: dotnet-core-web-api
@@ -16,8 +16,9 @@ spec:
       labels:
         app: dotnet-core-web-api
     spec:
+      serviceAccountName: cloudnckv-user
       containers:
-      - image: demostyava.azurecr.io/dotnet-core-web-api:1.0.0
+      - image: dmakeroam/webapp:1.0.2
         name: dotnet-core-web-api
         resources: {}
         env: 
@@ -25,6 +26,16 @@ spec:
           value: "http://*:8090"
         - name: ASPNETCORE_ENVIRONMENT
           value: "Production"
+        - name: username
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: username
+        - name: password
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: password
         livenessProbe:
           httpGet:
             path: /health
@@ -45,9 +56,18 @@ spec:
         - name: appvolume
           mountPath: "/app/appsettings.Production.json"
           subPath: "appsettings.Production.json"
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
         imagePullPolicy: Always
       volumes:
         - name: appvolume
           configMap:
             name: appsettings
+        - name: secrets-store-inline
+          csi:
+           driver: secrets-store.csi.k8s.io
+           readOnly: true
+           volumeAttributes:
+              secretProviderClass: cloudnckv-provider
 status: {}
