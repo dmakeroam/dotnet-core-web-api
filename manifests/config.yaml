@@ -8,4 +8,4 @@ data:
 kind: ConfigMap
 metadata:
   name: appsettings
-  namespace: dmakeroam
+  namespace: default
