@@ -18,7 +18,7 @@ spec:
     spec:
       serviceAccountName: cloudnckv-user
       containers:
-      - image: dmakeroam/webapp:1.0.2
+      - image: dmakeroam/webapp:1.0.1
         name: dotnet-core-web-api
         resources: {}
         env: 
