@@ -29,14 +29,14 @@ jobs:
         push: true
         tags: appservicedemoa.azurecr.io/dotnetcoreapp:${{ github.sha }}
 
-    - name: 'Deploy to Azure Container App'
+    - name: 'Login to Azure'
       uses: azure/login@v1
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
-    - name: Azure CLI script
+    - name: Deploy to Azure Container App
       uses: azure/CLI@v1
       with:
         azcliversion: 2.30.0
