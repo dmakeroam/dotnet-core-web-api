@@ -9,6 +9,7 @@ env:
   AZURE_CONTAINER_REGISTRY: appservicedemoA
   CONTAINER_NAME: dotnetcorekube
   RESOURCE_GROUP: ghe1
+  ACR_RESOURCE_GROUP: appservice-demo
   CLUSTER_NAME: aksssssssss
   DEPLOYMENT_MANIFEST_PATH: ./manifests
   BUILD_CONTEXT_PATH: .
@@ -34,7 +35,7 @@ jobs:
       # Builds and pushes an image up to your Azure Container Registry
       - name: Build and push image to ACR
         run: |
-          az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.RESOURCE_GROUP }} .
+          az acr build --image ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} .
   deploy:
     permissions:
       actions: read
