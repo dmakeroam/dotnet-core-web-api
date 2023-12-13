@@ -6,7 +6,7 @@ metadata:
   name: dotnet-core-web-api
   namespace: dotnet-demo
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: dotnet-core-web-api
@@ -22,7 +22,7 @@ spec:
           value: http://*:8090
         - name: ASPNETCORE_ENVIRONMENT
           value: Production
-        image: appservicedemoA.azurecr.io/dotnetcorekube
+        image: appservicedemoa.azurecr.io/dotnetcorekube:b6d23daa672f21b66612eabd9ec00aaf9de33e45
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
