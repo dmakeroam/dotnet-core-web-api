@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: appservicedemoa.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6aaa128feae44ef29e4859c6b235edc7 }}/dotnet-core:${{ github.sha }}
+        tags: appservicedemoa.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6aaa128feae44ef29e4859c6b235edc7 }}/dotnetcore:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
