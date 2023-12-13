@@ -48,4 +48,4 @@ jobs:
         app-name: 'helloworlddemoA'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_1011104c73994ebb8511cdd9c1343b62 }}
-        images: 'appservicedemoa.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_6aaa128feae44ef29e4859c6b235edc7 }}/dotnet-core:${{ github.sha }}'
+        images: 'appservicedemoa.azurecr.io/dotnetcore:${{ github.sha }}'
