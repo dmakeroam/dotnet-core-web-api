@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_CONTAINER_REGISTRY: appservicedemoA
+  AZURE_CONTAINER_REGISTRY: appservicedemoa
   CONTAINER_NAME: dotnetcorekube
   RESOURCE_GROUP: ghe1
   ACR_RESOURCE_GROUP: appservice-demo
