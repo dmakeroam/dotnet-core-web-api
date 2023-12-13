@@ -12,7 +12,7 @@ namespace DotNetCoreWebAPI.Services {
         }
 
         public string ConnectionToDatabase(){
-            return "Hello World1: "+_dbOptions.DBURL+", DB_USERNAME: "+_dbOptions.DBUserName+", DB_PASSWORD: "+_dbOptions.DBPassword;
+            return "Hello: "+_dbOptions.DBURL+", DB_USERNAME: "+_dbOptions.DBUserName+", DB_PASSWORD: "+_dbOptions.DBPassword;
         }
     }
 }
