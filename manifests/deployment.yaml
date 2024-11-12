@@ -22,7 +22,7 @@ spec:
           value: http://*:8090
         - name: ASPNETCORE_ENVIRONMENT
           value: Production
-        image: appservicedemoa.azurecr.io/dotnetcorekube:b6d23daa672f21b66612eabd9ec00aaf9de33e45
+        image: dmakeroam/dotnet-core-web-api:1.0.0
         imagePullPolicy: Always
         livenessProbe:
           httpGet:
